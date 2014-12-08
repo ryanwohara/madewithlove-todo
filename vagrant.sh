@@ -21,24 +21,27 @@ else
 fi
 echo '...done'
 
-
 echo '--- Installing OpenSSL ---'
 apt-get install -y openssl
 echo '...done'
 
-
 echo '--- Activating mod_rewrite and mod_php ---'
 a2enmod rewrite
-a2enmod php
+a2enmod php5
 echo '...done'
 
 sed -i 's/www-data/vagrant/' /etc/apache2/envvars
 chown vagrant: /var/lock/apache2
 
-echo '--- Restarting Apache ---'
-service apache2 restart
+echo '--- Changing the web root directory for Apache'
+sed -i 's/\/var\/www/\/vagrant/' /etc/apache2/sites-available/default
+
+echo '--- Reloading Apache ---'
+service apache2 reload
 echo '...done'
 
+echo '--- Pulling the project from GitHub ---'
+
 cd /var/www/
-git init
-git pull git@github.com:ryanwohara/madewithlove-todo.git
+rm -f index.html
+git init && git pull https://github.com/ryanwohara/madewithlove-todo.git

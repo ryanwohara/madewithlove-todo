@@ -1,5 +1,9 @@
-## To-Do Tool by Ryan O'Hara for madewithlove
+## To-Do Tool by Ryan W. O'Hara for madewithlove
 
-Deployable with Vagrant. Specific instructions pending.
+Deployable with Vagrant. 
 
-Once deployed, open in your browser at http://127.0.0.5/
+  git clone https://github.com/ryanwohara/madewithlove-todo.git
+  cd madewithlove-todo
+  vagrant up
+  open http://192.168.55.55/
+
