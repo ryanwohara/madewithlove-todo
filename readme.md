@@ -11,3 +11,5 @@ Deployable with Vagrant.
 
   open http://192.168.55.55/
 ```
+
+* Note: this is not a "serious" application or passwords would not be present within the repository.
