@@ -34,7 +34,8 @@ sed -i 's/www-data/vagrant/' /etc/apache2/envvars
 chown vagrant: /var/lock/apache2
 
 echo '--- Changing the web root directory for Apache'
-sed -i 's/\/var\/www/\/vagrant\/public/' /etc/apache2/sites-available/default
+sed -i 's/\/var\/www/\/vagrant\/public/g' /etc/apache2/sites-available/default
+sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/sites-available/default
 
 echo '--- Restarting Apache ---'
 service apache2 restart
