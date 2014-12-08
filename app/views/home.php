@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="todoApp">
 <head>
 	<meta charset="UTF-8">
 	<title>Ryan W. O'Hara's To-Do</title>
@@ -7,7 +7,7 @@
 		@import url(//fonts.googleapis.com/css?family=Lato:700);
 		@import url(/css/style.css);
 	</style>
-	<script src="/js/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
 	<script src="/js/script.js"></script>
 </head>
 <body>
@@ -15,9 +15,24 @@
 		<h1>To-Do List</h1>
 	</header>
 	<div class="container" ng-controller="todoControl">
-		<form ng-submit="add()">
-			<input type="text" size="50" placeholder="New to-do">
+		<form ng-submit="add(todoText)">
+			<input size="50" placeholder="New to-do" ng-model="todoText">
 		</form>
+
+		<div id="active" ng-repeat="(key, value) in getTodos(0)">
+			 <div class="active" id="active{{ key }}">
+			 	<input type="checkbox"> {{ value }}
+			 </div>
+		</div>
+
+		<div id="complete" ng-repeat="(key, value) in getTodos(1)">
+			 <div class="complete" id="complete{{ key }}">
+			 	<input type="checkbox" selected> {{ value }}
+			 </div>
+		</div>
+
+		<br><br>
+
 	</div>
 </body>
 </html>
