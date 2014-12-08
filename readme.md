@@ -2,8 +2,12 @@
 
 Deployable with Vagrant. 
 
-  git clone https://github.com/ryanwohara/madewithlove-todo.git
-  cd madewithlove-todo
-  vagrant up
-  open http://192.168.55.55/
+```
+  git clone https://github.com/ryanwohara/madewithlove-todo.git  
 
+  cd madewithlove-todo  
+
+  vagrant up  
+
+  open http://192.168.55.55/
+```
