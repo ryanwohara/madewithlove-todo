@@ -20,19 +20,16 @@
 		</form>
 
 		<div id="active" ng-repeat="(key, value) in getTodos(0)">
-			 <div class="active" id="active{{ key }}">
-			 	<input type="checkbox"> {{ value }}
+			 <div class="active">
+			 	<input type="checkbox" ng-click="complete( key )"> {{ value }}
 			 </div>
 		</div>
 
 		<div id="complete" ng-repeat="(key, value) in getTodos(1)">
-			 <div class="complete" id="complete{{ key }}">
-			 	<input type="checkbox" selected> {{ value }}
+			 <div class="complete">
+			 	<input type="checkbox" ng-click="reactivate( key )" checked> {{ value }}
 			 </div>
 		</div>
-
-		<br><br>
-
 	</div>
 </body>
 </html>

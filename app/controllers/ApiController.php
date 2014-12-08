@@ -4,7 +4,7 @@ class ApiController extends BaseController {
 
 	public function getTodos()
 	{
-		$todos = DB::table('todos')->get();
+		$todos = DB::table('todos')->remember(10)->get();
 
 		return $todos;
 	}
