@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app>
 <head>
 	<meta charset="UTF-8">
 	<title>Ryan W. O'Hara's To-Do</title>
@@ -11,8 +11,13 @@
 	<script src="/js/script.js"></script>
 </head>
 <body>
-	<div class="container">
-		Oh
+	<header>
+		<h1>To-Do List</h1>
+	</header>
+	<div class="container" ng-controller="todoControl">
+		<form ng-submit="add()">
+			<input type="text" size="50" placeholder="New to-do">
+		</form>
 	</div>
 </body>
 </html>
