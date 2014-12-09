@@ -4,7 +4,7 @@ class ApiController extends BaseController {
 
 	public function getTodos()
 	{
-		$todos = DB::table('todos')->remember(10)->get();
+		$todos = DB::table('todos')->get();
 
 		return $todos;
 	}
@@ -16,6 +16,8 @@ class ApiController extends BaseController {
 		DB::table('todos')->insert(
 			array('text' => $todo, 'complete' => 0)
 		);
+
+		return $this->getTodos();
 	}
 
 	public function delTodo()
@@ -23,6 +25,8 @@ class ApiController extends BaseController {
 		$todo_ID = Input::get('todo_ID');
 
 		DB::table('todos')->where('id', '=', $todo_ID)->delete();
+
+		return $this->getTodos();
 	}
 
 	public function editTodo()
@@ -33,6 +37,8 @@ class ApiController extends BaseController {
 		DB::table('todos')->where('id', '=', $todo_ID)->update(
 			array('text' => $todo_Text)
 		);
+
+		return $this->getTodos();
 	}
 
 	public function completeTodo()
@@ -42,6 +48,8 @@ class ApiController extends BaseController {
 		DB::table('todos')->where('id', '=', $todo_ID)->update(
 			array('complete' => 1)
 		);
+
+		return $this->getTodos();
 	}
 
 	public function reactivateTodo()
@@ -51,6 +59,8 @@ class ApiController extends BaseController {
 		DB::table('todos')->where('id', '=', $todo_ID)->update(
 			array('complete' => 0)
 		);
+
+		return $this->getTodos();
 	}
 
 }

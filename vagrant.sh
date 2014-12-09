@@ -10,6 +10,7 @@ echo '--- Installing mysql ---'
 debconf-set-selections <<< 'mysql-server mysql-server/root_password password Ye8grYm4god9ju7'
 debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password Ye8grYm4god9ju7'
 apt-get install -y mysql-server
+mysql -u root -pYe8grYm4god9ju7 -e "source /vagrant/madewithlove.sql"
 
 echo '--- Installing composer ---'
 if [[ ! -f /usr/local/bin/composer ]]; then
