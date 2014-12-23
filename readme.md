@@ -1,4 +1,4 @@
-## To-Do Tool by Ryan W. O'Hara for madewithlove
+## Simple To-Do Tool with Angularjs
 
 Deployable with Vagrant. 
 
